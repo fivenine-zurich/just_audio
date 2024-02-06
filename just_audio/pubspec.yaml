@@ -15,13 +15,18 @@ environment:
   flutter: ">=3.0.0"
 
 dependencies:
-  # just_audio_platform_interface: ^4.2.2
-  just_audio_platform_interface:
-    path: ../just_audio_platform_interface
+  just_audio_platform_interface: ^4.2.2
+  # just_audio_platform_interface:
+  #   path: ../just_audio_platform_interface
   
   # just_audio_web: ^0.4.9
   just_audio_web:
-    path: ../just_audio_web
+    git:
+      url: https://github.com/fivenine-zurich/just_audio.git
+      ref: Use-custom-Uri-to-avoid-parsing-large-data-Uris-and-blocking-ui
+      path: just_audio_web
+
+    # path: ../just_audio_web
 
   audio_session: ^0.1.14
   rxdart: '>=0.26.0 <0.28.0'
