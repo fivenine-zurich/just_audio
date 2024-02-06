@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:just_audio_platform_interface/just_audio_platform_interface.dart';
+import 'package:slim_data_uri/slim_data_uri.dart';
 
 /// The web implementation of [JustAudioPlatform].
 class JustAudioPlugin extends JustAudioPlatform {
@@ -491,13 +492,13 @@ class Html5AudioPlayer extends JustAudioPlayer {
   AudioSourcePlayer decodeAudioSource(AudioSourceMessage audioSourceMessage) {
     if (audioSourceMessage is ProgressiveAudioSourceMessage) {
       return ProgressiveAudioSourcePlayer(this, audioSourceMessage.id,
-          Uri.parse(audioSourceMessage.uri), audioSourceMessage.headers);
+          parseUri(audioSourceMessage.uri), audioSourceMessage.headers);
     } else if (audioSourceMessage is DashAudioSourceMessage) {
       return DashAudioSourcePlayer(this, audioSourceMessage.id,
-          Uri.parse(audioSourceMessage.uri), audioSourceMessage.headers);
+          parseUri(audioSourceMessage.uri), audioSourceMessage.headers);
     } else if (audioSourceMessage is HlsAudioSourceMessage) {
       return HlsAudioSourcePlayer(this, audioSourceMessage.id,
-          Uri.parse(audioSourceMessage.uri), audioSourceMessage.headers);
+          parseUri(audioSourceMessage.uri), audioSourceMessage.headers);
     } else if (audioSourceMessage is ConcatenatingAudioSourceMessage) {
       return ConcatenatingAudioSourcePlayer(
           this,
