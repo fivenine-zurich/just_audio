@@ -1,3 +1,16 @@
+## 4.5.0
+
+* Add errorCode/errorMessage to PlaybackEventMessage.
+* Add useLazyPreparation to InitRequest for top-level playlist.
+
+## 4.4.0
+
+* Add setWebSinkId for web (@dganzella).
+
+## 4.3.0
+
+* Add setWebCrossOrigin for CORS on web (@danielwinkler).
+
 ## 4.2.2
 
 * Add setAllowsExternalPlayback on iOS/macOS.
